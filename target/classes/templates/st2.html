@@ -1,0 +1,51 @@
+<html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <style type="text/css">
+
+		table{font-size: 30px;margin-top: 30px;}
+		#submit{margin-top: auto;font-size: 20px;border: none;padding:auto;}
+		input{background-color: silver}
+		.class{color: red}
+	</style>
+</head>
+<title>
+</title>
+<body style="background-color:white;margin:auto;padding: 10px;">
+<div align="center">
+    <div><h1 align="center" style="font-size: 60px">Details Form</h1></div>
+    <form method="post" th:object="${user}" >
+        <table id=tb1>
+            <tr><td>First name:</td><td><input type="text" th:field="${user.name} name="name" required align="center" id="first" ></input></td></tr>
+            <tr><td>Mob. no.:</td><td><input type="number" th:field="${user.mobno} name="mobno" required align="center" id="no"></input></td></tr>
+            <tr><td>E-mail:</td><td><input type="email" th:field="${user.email} name="email" required id="email"></input></td></tr>
+        </table>
+    </form>
+</div>
+<div align="center" ><button type="button" value="submit" id="submit" onclick="fun()">submit</button></div>
+    <div>
+        <table id="table">
+            <tr>
+                <td>Name</td>
+                <td>Mob No.</td>
+                <td>Email Id.</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script type="text/javascript">
+	function fun(){
+		var first=document.getElementById('first').value;
+		var no=document.getElementById('no').value;
+		var email=document.getElementById('email').value;
+		var tb2=document.getElementById('tb2');
+
+		 table.innerHTML += "<tr><td id=\"column-down\">" + first + "</td><td id=\"column-down\">" + no + "</td><td id=\"column-down\">" + email + "</td><td><button onclick=\"del()\" id=\"btn2\">Delete</button></td></tr></table>";
+	}
+	function del() {
+    document.getElementById("table").deleteRow(1);
+}
+</script>
+</html>
+
+
